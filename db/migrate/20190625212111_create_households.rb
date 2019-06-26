@@ -4,7 +4,7 @@ class CreateHouseholds < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :color
       t.string :image
-      t.string :password
+      t.string :password_digest
 
       t.timestamps
     end

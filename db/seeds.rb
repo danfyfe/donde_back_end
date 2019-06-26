@@ -2,31 +2,31 @@ puts "SEEDING"
 
 ## users ##
 
-dan = User.find_or_create_by(password:"123",username:"Dan", email:"fyfedaniel@gmail.com",image:"https://i.imgur.com/UFAMSqv.png")
+dan = User.create(password:"123",username:"Dan", email:"fyfedaniel@gmail.com",image:"https://i.imgur.com/UFAMSqv.png")
 
-meylin = User.find_or_create_by(password:"123",username:"Meylin",email:"meylinlopez08@gmail.com",image:"https://i.imgur.com/H7iqVi6.png")
+meylin = User.create(password:"123",username:"Meylin",email:"meylinlopez08@gmail.com",image:"https://i.imgur.com/H7iqVi6.png")
 
-mom = User.find_or_create_by(password:"123",username:"GG",email:"mom@mom.com",image:"https://i.imgur.com/6oYbQKy.png")
+mom = User.create(password:"123",username:"GG",email:"mom@mom.com",image:"https://i.imgur.com/6oYbQKy.png")
 
 
 ## households ##
 
-apt = Household.find_or_create_by(name:"556 17th St",color:"lightblue", image:"https://i.imgur.com/GMOhUbb.png",password:"556")
+apt = Household.create(name:"556 17th St",color:"lightblue", image:"https://i.imgur.com/GMOhUbb.png",password:"556")
 
-montvale = Household.find_or_create_by(name:"Montvale", color:"blue", image:"https://i.imgur.com/GMOhUbb.png", password:"montvale")
+montvale = Household.create(name:"Montvale", color:"blue", image:"https://i.imgur.com/GMOhUbb.png", password:"montvale")
 
-lakehouse = Household.find_or_create_by(name:"Lake House", color:"orange",image:"https://i.imgur.com/GMOhUbb.png",password:"lakehouse")
+lakehouse = Household.create(name:"Lake House", color:"orange",image:"https://i.imgur.com/GMOhUbb.png",password:"lakehouse")
 
 
 ## user_households ##
 
-UserHoushold.find_or_create_by(user_id:dan.id,household_id:apt.id)
-UserHoushold.find_or_create_by(user_id:meylin.id,household_id:apt.id)
+UserHousehold.find_or_create_by(user_id:dan.id,household_id:apt.id)
+UserHousehold.find_or_create_by(user_id:meylin.id,household_id:apt.id)
 
-UserHoushold.find_or_create_by(user_id:dan.id,household_id:montvale.id)
-UserHoushold.find_or_create_by(user_id:mom.id,household_id:montvale.id)
+UserHousehold.find_or_create_by(user_id:dan.id,household_id:montvale.id)
+UserHousehold.find_or_create_by(user_id:mom.id,household_id:montvale.id)
 
-UserHoushold.find_or_create_by(user_id:mom.id,household_id:lakehouse.id)
+UserHousehold.find_or_create_by(user_id:mom.id,household_id:lakehouse.id)
 
 
 ## spaces ##
@@ -107,4 +107,4 @@ blanket4 = Item.find_or_create_by(name:"Sheets", description:"5 white bed sheets
 
 
 
-:puts "DONE SEEDING"
+puts "DONE SEEDING"
