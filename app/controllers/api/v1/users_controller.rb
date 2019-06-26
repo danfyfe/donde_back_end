@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :authorized, only: [:create]
 
   def create
-    if params[:password] === params[:passwordConfirm]
+    if params[:user][:password] === params[:user][:passwordConfirm]
       @user = User.create(user_params)
       if @user.valid?
         @user.update(image: "https://i.imgur.com/UFAMSqv.png")
@@ -15,6 +15,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def profile
+    byebug
     render json: { user: UserSerializer.new(current_user)}, status: :accepted
   end
 
