@@ -11,7 +11,7 @@ mom = User.create(password:"123",username:"GG",email:"mom@mom.com",image:"https:
 
 ## households ##
 
-apt = Household.create(name:"556 17th St",color:"lightblue", image:"https://i.imgur.com/GMOhUbb.png",password:"556")
+apt = Household.create(name:"556 17th St",color:"brown", image:"https://i.imgur.com/GMOhUbb.png",password:"556")
 
 montvale = Household.create(name:"Montvale", color:"blue", image:"https://i.imgur.com/GMOhUbb.png", password:"montvale")
 
@@ -89,7 +89,8 @@ blanket4 = Item.find_or_create_by(name:"Sheets", description:"5 white bed sheets
 
 
 
-
+## messages ##
+Message.create(user_id:dan.id, household_id:apt.id, title:"Where is the waffle iron?!", content:"I want to make waffles, but I can't find it. WHERE IS IT?!!!")
 
 
 

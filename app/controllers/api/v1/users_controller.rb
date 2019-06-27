@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  skip_before_action :authorized, only: [:create]
+  # skip_before_action :authorized, only: [:create]
 
   def create
     if params[:user][:password] === params[:user][:passwordConfirm]
@@ -22,7 +22,7 @@ class Api::V1::UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit(:username, :email,:password)
+    params.require(:user).permit(:username, :email, :password)
   end
 
 end
