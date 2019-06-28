@@ -11,6 +11,10 @@ class Api::V1::MessagesController < ApplicationController
     render json: @message
   end
 
+  def household
+    byebug
+  end
+
   private
 
   def message_params

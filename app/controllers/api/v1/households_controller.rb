@@ -5,11 +5,13 @@ class Api::V1::HouseholdsController < ApplicationController
     # byebug
     @households = Household.all
     # @spaces = Spaces.all
-    render json: @households, include: [:spaces,:containers, :items]
+    render json: @households, include: [:spaces,:containers, :items, :messages, :users]
   end
 
   def show
-    byebug
+    # byebug
+    @household = Household.find(params[:id])
+    render json: @household, include: [:spaces,:containers,:items, :users, :messages]
   end
 
   def create

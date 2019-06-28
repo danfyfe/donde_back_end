@@ -79,6 +79,15 @@ old_shirt3 = Item.find_or_create_by(name:"Metallica shirt", description:"Dan's o
 les_paul = Item.find_or_create_by(name:"Les Paul", description:"Gibson Les Paul guitar", container_id:guitar_case.id)
 les_paul_strap = Item.find_or_create_by(name:"Les Paul Strap", description:"The strap fot the Les Paul", container_id:guitar_case.id)
 
+# user items
+UserItem.create(user_id:dan.id,item_id:les_paul.id)
+UserItem.create(user_id:dan.id,item_id:les_paul_strap.id)
+UserItem.create(user_id:meylin.id,item_id:wig1.id)
+UserItem.create(user_id:meylin.id,item_id:wig2.id)
+UserItem.create(user_id:meylin.id,item_id:wig3.id)
+
+
+
 
 blanket1 = Item.find_or_create_by(name:"Old blanket", description:"Old comforter from the boy's rooms", container_id:blanket_bin.id)
 blanket2 = Item.find_or_create_by(name:"Guest Blanket", description:"Comforter for the guests", container_id:blanket_bin.id)
