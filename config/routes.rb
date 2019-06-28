@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get '/households/:id', to:'households#show'
       get '/households', to: 'households#index'
       get '/messages', to: 'messages#index'
+      post '/messages', to: 'messages#create'
       post '/profile', to: 'users#profile'
 
     end

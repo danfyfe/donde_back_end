@@ -13,8 +13,11 @@ class Api::V1::HouseholdsController < ApplicationController
   end
 
   def create
-    byebug
-    @household = Household.create()
+    # byebug
+    @household = Household.create(household_params)
+    @household.update(image:"https://i.imgur.com/GMOhUbb.png")
+    @user_household = UserHousehold.create(user_id: params[:user][:id], household_id: @household.id)
+    render json: @household
   end
 
 
@@ -22,7 +25,7 @@ class Api::V1::HouseholdsController < ApplicationController
   private
 
   def household_params
-    params.require(:household).permit(:name, :password)
+    params.require(:household).permit(:name, :password,:color)
   end
 
 end
