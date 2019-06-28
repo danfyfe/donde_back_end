@@ -92,7 +92,7 @@ blanket4 = Item.find_or_create_by(name:"Sheets", description:"5 white bed sheets
 ## messages ##
 Message.create(user_id:dan.id, household_id:apt.id, title:"Where is the waffle iron?!", content:"I want to make waffles, but I can't find it. WHERE IS IT?!!!")
 
-
+Message.create(user_id:mom.id, household_id:montvale.id, title:"Do you want these shirts?", content:"I found two Metallica shirts, can I throw them out or do you want them?")
 
 
 
