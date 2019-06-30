@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       post '/profile', to: 'users#profile'
       get '/items', to: 'items#index'
 
+      post '/spaces', to: 'spaces#create'
+
     end
   end
 end

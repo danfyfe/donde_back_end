@@ -6,4 +6,30 @@ class HouseholdSerializer < ActiveModel::Serializer
   has_many :user_households
   has_many :users, through: :user_households
   has_many :messages
+
+  def spaces
+
+    self.object.spaces.map do |space|
+      {
+        name: space.name,
+        household_id: space.household_id,
+        containers: space.containers,
+        items: space.items
+      }
+    end
+  end
+
+# def containers
+#   self.object.containers.map do |container|
+#     {
+#       name: container.name,
+#       description: container.description,
+#       color: container.color,
+#       items: container.items
+#     }
+#   end
+# end
+
+
+
 end

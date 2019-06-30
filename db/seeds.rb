@@ -58,7 +58,7 @@ clothes_box = Container.find_or_create_by(name:"Box of old clothes", description
 
 guitar_case = Container.find_or_create_by(name:"Gibson case", description:"Case for the Les Paul", color:"orange", space_id:basement.id)
 
-blanket_bin = Container.find_or_create_by(name:"Blanket bin", description:"Plastic bin full of blankets and sheets", color:"white", space_id:lakehouse.id)
+blanket_bin = Container.find_or_create_by(name:"Blanket bin", description:"Plastic bin full of blankets and sheets", color:"white", space_id:upstairs.id)
 
 ## items ##
 
