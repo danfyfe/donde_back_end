@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       get '/messages', to: 'messages#index'
       post '/messages', to: 'messages#create'
       post '/profile', to: 'users#profile'
+      get '/items', to: 'items#index'
 
     end
   end
