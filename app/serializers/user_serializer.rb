@@ -17,57 +17,36 @@ class UserSerializer < ActiveModel::Serializer
         color: household.color,
         image: household.image,
         users: household.users,
-        messages: household.messages,
+        messages:
+         household.messages.map do |message|
+           {
+             id: message.id,
+             title: message.title,
+             content: message.content,
+             household: message.household,
+             user: message.user,
+           }
+         end,
         spaces: household.spaces,
         containers: household.containers,
-        items: household.items
+        items: household.items.map do |item|
+          {
+            id: item.id,
+            name: item.name,
+            description: item.description,
+            users: item.users,
+            household: item.household,
+            space: item.space,
+            container: item.container
+          }
+        end,
       }
-      # def household_items
-      #   self.object.items.map do |item|
-      #     {
-      #       id: item.id,
-      #       name: item.name,
-      #       description: item.description,
-      #       users: item.users,
-      #       household: item.household,
-      #       space: item.space,
-      #       container: item.container
-      #     }
-      #   end
-      # end
 
     end
+  end
 
   end
 
-
-  # def household_messages
-  #   self.object.messages.map do |message|
-  #     {
-  #       id: message.id,
-  #       title: message.title,
-  #       content: message.content,
-  #       user: message.user,
-  #       household: message.household
-  #     }
-  #   end
-  # end
-
-  end
-
-  # def household_items
-  #   self.object.items.map do |item|
-  #     {
-  #       id: item.id,
-  #       name: item.name,
-  #       description: item.description,
-  #       users: item.users,
-  #       household: item.household,
-  #       space: item.space,
-  #       container: item.container
-  #     }
-  #   end
-  # end
 
 
 
