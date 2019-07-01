@@ -5,6 +5,12 @@ def index
   render json: @items, include: [:users, :container]
 end
 
+def show
+  @item = Item.find(params[:id])
+  # byebug
+  render json: @item
+end
+
 private
 
 end
