@@ -1,6 +1,11 @@
 class Api::V1::UsersController < ApplicationController
   # skip_before_action :authorized, only: [:create]
 
+  def index
+    @users = User.all
+    render json: @users
+  end
+
   def create
     if params[:user][:password] === params[:user][:passwordConfirm]
       @user = User.create(user_params)
