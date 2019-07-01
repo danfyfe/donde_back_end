@@ -25,6 +25,7 @@ class UserSerializer < ActiveModel::Serializer
              content: message.content,
              household: message.household,
              user: message.user,
+             created_at: message.created_at
            }
          end,
         spaces: household.spaces,

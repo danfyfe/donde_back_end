@@ -19,6 +19,18 @@ class HouseholdSerializer < ActiveModel::Serializer
     end
   end
 
+  def messages
+    self.object.messages.map do |message|
+      {
+        id: message.id,
+        title: message.title,
+        content: message.content,
+        user: message.user,
+        household: message.household
+      }
+    end
+  end
+
 
 
   def items
