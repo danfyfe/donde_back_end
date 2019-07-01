@@ -8,6 +8,10 @@ meylin = User.create(password:"123",username:"Meylin",email:"meylinlopez08@gmail
 
 mom = User.create(password:"123",username:"GG",email:"mom@mom.com",image:"https://i.imgur.com/6oYbQKy.png")
 
+desi = User.create(password:"123",username:"Desi",email:"none",image:"https://i.imgur.com/6oYbQKy.png")
+
+matt = User.create(password:"123",username:"Matt",email:"none",image:"https://i.imgur.com/6oYbQKy.png")
+
 
 ## households ##
 
@@ -48,6 +52,8 @@ upstairs = Space.find_or_create_by(name:"Upstairs", household_id:lakehouse.id)
 
 imac_box = Container.find_or_create_by(name:"iMac Box", description:"iMac box", color:"white", space_id:storage_closet.id)
 
+flower_bag = Container.find_or_create_by(name:"Flower Bag", description:"A bag full of flower tools", color:"green", space_id:storage_closet.id)
+
 christmas_stuff = Container.find_or_create_by(name:"Chrismas stuff", description:"Colorful box with all the chrismas stuff", color:"green", space_id:storage_closet.id)
 
 wig_box = Container.find_or_create_by(name:"Wig Box", description:"A colorful box full of Meylin's wigs", space_id:bedroom_closet.id)
@@ -72,6 +78,9 @@ wig1 = Item.find_or_create_by(name:"Blonde Wig", description:"A blonde Bob wig",
 wig2 = Item.find_or_create_by(name:"Pink Wig", description:"A pink Bob wig", container_id:wig_box.id)
 wig3 = Item.find_or_create_by(name:"Black Wig", description:"A black long wig", container_id:wig_box.id)
 
+clippers = Item.find_or_create_by(name:"Clippers", description:"Flower clippers", container_id:flower_bag.id)
+
+
 old_shirt1 = Item.find_or_create_by(name:"CBGB shirt", description:"Dan's old black CBGB shirt", container_id:clothes_box.id)
 old_shirt2 = Item.find_or_create_by(name:"Metallica shirt", description:"Dan's old black Metallica shirt with green statue on it", container_id:clothes_box.id)
 old_shirt3 = Item.find_or_create_by(name:"Metallica shirt", description:"Dan's old black Metallica shirt with photo of band on it", container_id:clothes_box.id)
@@ -81,10 +90,15 @@ les_paul_strap = Item.find_or_create_by(name:"Les Paul Strap", description:"The 
 
 # user items
 UserItem.create(user_id:dan.id,item_id:les_paul.id)
+UserItem.create(user_id:dan.id,item_id:imac.id)
 UserItem.create(user_id:dan.id,item_id:les_paul_strap.id)
 UserItem.create(user_id:meylin.id,item_id:wig1.id)
 UserItem.create(user_id:meylin.id,item_id:wig2.id)
 UserItem.create(user_id:meylin.id,item_id:wig3.id)
+UserItem.create(user_id:dan.id,item_id:ornaments.id)
+UserItem.create(user_id:meylin.id,item_id:ornaments.id)
+UserItem.create(user_id:desi.id,item_id:clippers.id)
+
 
 
 
@@ -103,7 +117,7 @@ Message.create(user_id:dan.id, household_id:apt.id, title:"Where is the waffle i
 
 Message.create(user_id:mom.id, household_id:montvale.id, title:"Do you want these shirts?", content:"I found two Metallica shirts, can I throw them out or do you want them?")
 
-
+Message.create(user_id:meylin.id, household_id:apt.id, title:"re: Where is the waffle iron?!", content:"I don't know.")
 
 
 
