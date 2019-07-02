@@ -12,7 +12,7 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def household
-    byebug
+    # byebug
   end
 
   private
