@@ -15,11 +15,11 @@ matt = User.create(password:"123",username:"Matt",email:"none",image:"https://i.
 
 ## households ##
 
-apt = Household.create(name:"556 17th St",color:"brown", image:"https://i.imgur.com/GMOhUbb.png",password:"556")
+apt = Household.create(name:"556 17th St",color:"brown", image:"https://i.imgur.com/GMOhUbb.png",password:"123")
 
-montvale = Household.create(name:"Montvale", color:"blue", image:"https://i.imgur.com/GMOhUbb.png", password:"montvale")
+montvale = Household.create(name:"Montvale", color:"blue", image:"https://i.imgur.com/GMOhUbb.png", password:"123")
 
-lakehouse = Household.create(name:"Lake House", color:"orange",image:"https://i.imgur.com/GMOhUbb.png",password:"lakehouse")
+lakehouse = Household.create(name:"Lake House", color:"orange",image:"https://i.imgur.com/GMOhUbb.png",password:"123")
 
 
 ## user_households ##

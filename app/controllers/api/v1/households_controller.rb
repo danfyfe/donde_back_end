@@ -22,12 +22,28 @@ class Api::V1::HouseholdsController < ApplicationController
     render json: @household
   end
 
+  def join
+    @household = Household.find(params[:join][:household_id])
+    @user = User.find(params[:join][:user_id])
+    # byebug
+    if @household.authenticate(params[:join][:password])
+      @user_household = UserHousehold.create(join_params)
+      render json: @household
+    else
+      render json: {message: 'Invalid Password'}, status: :unauthorized
+    end
+  end
+
 
 
   private
 
   def household_params
     params.require(:household).permit(:name, :password,:color)
+  end
+
+  def join_params
+    params.require(:join).permit(:user_id, :household_id)
   end
 
 end
