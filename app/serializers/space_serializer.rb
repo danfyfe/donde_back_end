@@ -18,4 +18,17 @@ class SpaceSerializer < ActiveModel::Serializer
     end
   end
 
+  # def containers
+  #   self.object.items.map do |container|
+  #     {
+  #       id: container.id,
+  #       name: container.name,
+  #       description: container.description,
+  #
+  #
+  #     }
+  #   end
+  #
+  # end
+
 end
