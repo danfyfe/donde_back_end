@@ -23,11 +23,15 @@ Rails.application.routes.draw do
       # items
       get '/items/:id', to: 'items#show'
       get '/items', to: 'items#index'
+      post '/items', to: 'items#create'
 
 
       # spaces
       get '/spaces/:id', to: 'spaces#show'
       post '/spaces', to: 'spaces#create'
+
+      #containers
+      post '/containers', to: 'containers#create'
 
     end
   end

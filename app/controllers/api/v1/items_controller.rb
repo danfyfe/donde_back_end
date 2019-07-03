@@ -11,6 +11,16 @@ def show
   render json: @item, include: [:users, :container,:space,:household]
 end
 
-private
+def create
+  @item = Item.create(item_params)
+  # byebug
+  render json: @item, include: [:users,:container,:space,:household]
+end
 
+
+
+private
+  def item_params
+    params.require(:item).permit(:name,:description,:container_id)
+  end
 end
