@@ -17,6 +17,18 @@ def create
   render json: @item, include: [:users,:container,:space,:household]
 end
 
+def update
+  @container = Container.find(params[:item][:container_id])
+  @space = Space.find(params[:item][:space_id])
+  @item = Item.find(params[:item][:id])
+  # byebug
+
+  @container.update(space_id:params[:item][:space_id])
+  @item.update(name:params[:item][:name],description:params[:item][:description], container_id:params[:item][:container_id])
+  render json: @item, include: [:users,:container,:space,:household]
+
+end
+
 
 
 private

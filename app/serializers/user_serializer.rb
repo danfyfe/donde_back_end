@@ -28,7 +28,14 @@ class UserSerializer < ActiveModel::Serializer
              created_at: message.created_at
            }
          end,
-        spaces: household.spaces,
+        spaces:
+          household.spaces.map do |space|
+            {
+              id: space.id,
+              name: space.name,
+              containers: space.containers
+            }
+          end,
         containers:
           household.containers.map do |container|
             {

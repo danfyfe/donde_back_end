@@ -1,7 +1,6 @@
 class Api::V1::ContainersController < ApplicationController
 
   def create
-    # byebug
     @container = Container.create(container_params)
     render json: @container, include: [:items, :space]
   end
