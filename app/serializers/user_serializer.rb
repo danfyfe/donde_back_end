@@ -29,7 +29,29 @@ class UserSerializer < ActiveModel::Serializer
            }
          end,
         spaces: household.spaces,
-        containers: household.containers,
+        containers:
+          household.containers.map do |container|
+            {
+              id: container.id,
+              items:
+              container.items.map do |item|
+                {
+                  id: item.id,
+                  name: item.name,
+                  description: item.description,
+                  users: item.users,
+                  household: item.household,
+                  space: item.space,
+                  container: item.container
+                }
+              end,
+              space: container.space,
+              name: container.name,
+              description: container.description,
+              household: container.household
+            }
+
+          end,
         items: household.items.map do |item|
           {
             id: item.id,

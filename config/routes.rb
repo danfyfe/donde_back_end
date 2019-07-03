@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get '/households', to: 'households#index'
       post '/households', to: 'households#create'
       post '/households/:user_id/:household_id', to: 'households#join'
+      patch '/households/:id', to: 'households#update'
 
       # messages
       get '/messages/:id', to:'messages#household'

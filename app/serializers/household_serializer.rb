@@ -21,7 +21,18 @@ class HouseholdSerializer < ActiveModel::Serializer
             description: container.description,
             space: container.space,
             color: container.color,
-            items: container.items
+            items:
+            container.items.map do |item|
+              {
+                id: item.id,
+                name: item.name,
+                description: item.description,
+                users: item.users,
+                household: item.household,
+                space: item.space,
+                container: item.container
+              }
+            end
           }
         end,
         items: space.items

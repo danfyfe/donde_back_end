@@ -8,7 +8,7 @@ end
 def show
   @item = Item.find(params[:id])
   # byebug
-  render json: @item
+  render json: @item, include: [:users, :container,:space,:household]
 end
 
 private

@@ -8,4 +8,8 @@ class ItemSerializer < ActiveModel::Serializer
   # has_many :houshold_items
   # has_many :household_items, through: :household_items
 
+
+
+
+
 end
