@@ -1,3 +1,4 @@
+require_relative '../../concerns/random_house.rb'
 class Api::V1::HouseholdsController < ApplicationController
   # before_action :authorized
 
@@ -17,7 +18,7 @@ class Api::V1::HouseholdsController < ApplicationController
   def create
     # byebug
     @household = Household.create(household_params)
-    @household.update(image:"https://i.imgur.com/GMOhUbb.png")
+    @household.update(image:random_house)
     @user_household = UserHousehold.create(user_id: params[:user][:id], household_id: @household.id)
     render json: @household
   end

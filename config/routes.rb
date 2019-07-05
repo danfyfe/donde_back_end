@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get '/items', to: 'items#index'
       post '/items', to: 'items#create'
       patch '/items/:id', to: 'items#update'
+      patch '/items/owners/:id', to: 'items#set_owners'
 
 
       # spaces

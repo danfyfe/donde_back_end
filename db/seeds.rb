@@ -17,15 +17,17 @@ matt = User.create(password:"123",username:"Matt",email:"none",image:"https://i.
 
 apt = Household.create(name:"556 17th St",color:"brown", image:"https://i.imgur.com/GMOhUbb.png",password:"123")
 
-montvale = Household.create(name:"Montvale", color:"blue", image:"https://i.imgur.com/GMOhUbb.png", password:"123")
+montvale = Household.create(name:"Montvale", color:"blue", image:"https://i.imgur.com/JSJ5Dk7.png", password:"123")
 
-lakehouse = Household.create(name:"Lake House", color:"orange",image:"https://i.imgur.com/GMOhUbb.png",password:"123")
+lakehouse = Household.create(name:"Lake House", color:"orange",image:"https://i.imgur.com/nKUQcrC.png",password:"123")
 
 
 ## user_households ##
 
 UserHousehold.find_or_create_by(user_id:dan.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:meylin.id,household_id:apt.id)
+UserHousehold.find_or_create_by(user_id:desi.id,household_id:apt.id)
+UserHousehold.find_or_create_by(user_id:matt.id,household_id:apt.id)
 
 UserHousehold.find_or_create_by(user_id:dan.id,household_id:montvale.id)
 UserHousehold.find_or_create_by(user_id:mom.id,household_id:montvale.id)

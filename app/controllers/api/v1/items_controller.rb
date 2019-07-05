@@ -29,6 +29,17 @@ def update
 
 end
 
+def set_owners
+  @item = Item.find(params[:item][:id])
+
+  params[:users].each do |user_id|
+    UserItem.create(user_id: user_id, item_id:params[:item][:id])
+  end
+
+  # byebug
+  render json: @item, include: [:users,:container,:space,:household]
+end
+
 
 
 private
