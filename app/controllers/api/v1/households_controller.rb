@@ -18,8 +18,8 @@ class Api::V1::HouseholdsController < ApplicationController
   def create
     # byebug
     @household = Household.create(household_params)
-    @household.update(image:random_house)
-    @user_household = UserHousehold.create(user_id: params[:user][:id], household_id: @household.id)
+    # @household.update(image:random_house)
+    @user_household = UserHousehold.create(user_id: params[:user_id], household_id: @household.id)
     render json: @household
   end
 
@@ -47,7 +47,7 @@ class Api::V1::HouseholdsController < ApplicationController
   private
 
   def household_params
-    params.require(:household).permit(:name, :password,:color)
+    params.require(:household).permit(:name, :password, :color, :image)
   end
 
   def join_params
