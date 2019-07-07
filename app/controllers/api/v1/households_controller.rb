@@ -38,7 +38,7 @@ class Api::V1::HouseholdsController < ApplicationController
   def update
     # byebug
     @household = Household.find(params[:id])
-    @household.update(name:params[:household][:name], color: params[:household][:color])
+    @household.update(name:params[:household][:name], color: params[:household][:color], image:params[:household][:image])
     render json: @household
   end
 
