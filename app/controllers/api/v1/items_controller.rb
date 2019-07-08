@@ -45,10 +45,23 @@ def set_owners
     UserItem.find_or_create_by(user_id: user_id, item_id:params[:item][:id])
   end
 
-
-
   # byebug
   render json: @item, include: [:users,:container,:space,:household]
+end
+
+def destroy
+  # byebug
+  @item = Item.find(params[:id])
+  @household = @item.household
+  @user = User.find(params[:userId])
+
+  if @household.authenticate(params[:householdPassword])
+    @message = Message.create(user_id:@user.id, household_id:@household.id, title:"#{@item.name} has been deleted!", content:"#{@user.username} has deleted #{@item.name}! Item description: #{@item.description}")
+    @item.destroy
+    render json: {message: "#{@item.name} successfully deleted"}
+  else
+    render json: {message: "Household Password Incorrect"}
+  end
 end
 
 
