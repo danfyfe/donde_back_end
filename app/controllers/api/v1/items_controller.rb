@@ -58,9 +58,9 @@ def destroy
   if @household.authenticate(params[:householdPassword])
     @message = Message.create(user_id:@user.id, household_id:@household.id, title:"#{@item.name} has been deleted!", content:"#{@user.username} has deleted #{@item.name}! Item description: #{@item.description}")
     @item.destroy
-    render json: {message: "#{@item.name} successfully deleted"}
+    render json: {message: "#{@item.name} successfully deleted", error: false}, status: :accepted
   else
-    render json: {message: "Household Password Incorrect"}
+    render json: {message: "Household Password Incorrect", error: true}, status: :not_acceptable
   end
 end
 
