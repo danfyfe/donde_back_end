@@ -1,6 +1,7 @@
 class ContainerSerializer < ActiveModel::Serializer
   attributes :id, :name, :color, :description, :space_id
   belongs_to :space, serializer:SpaceSerializer
+  belongs_to :household, through: :space, serializer:HouseholdSerializer
   has_many :items
 
 

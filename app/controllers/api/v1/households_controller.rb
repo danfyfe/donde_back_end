@@ -1,3 +1,4 @@
+require_relative '../../concerns/random_house.rb'
 class Api::V1::HouseholdsController < ApplicationController
   # before_action :authorized
 
@@ -17,8 +18,8 @@ class Api::V1::HouseholdsController < ApplicationController
   def create
     # byebug
     @household = Household.create(household_params)
-    @household.update(image:"https://i.imgur.com/GMOhUbb.png")
-    @user_household = UserHousehold.create(user_id: params[:user][:id], household_id: @household.id)
+    # @household.update(image:random_house)
+    @user_household = UserHousehold.create(user_id: params[:user_id], household_id: @household.id)
     render json: @household
   end
 
@@ -37,7 +38,7 @@ class Api::V1::HouseholdsController < ApplicationController
   def update
     # byebug
     @household = Household.find(params[:id])
-    @household.update(name:params[:household][:name], color: params[:household][:color])
+    @household.update(name:params[:household][:name], color: params[:household][:color], image:params[:household][:image])
     render json: @household
   end
 
@@ -46,7 +47,7 @@ class Api::V1::HouseholdsController < ApplicationController
   private
 
   def household_params
-    params.require(:household).permit(:name, :password,:color)
+    params.require(:household).permit(:name, :password, :color, :image)
   end
 
   def join_params

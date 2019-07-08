@@ -3,9 +3,7 @@ class MessageSerializer < ActiveModel::Serializer
   belongs_to :user, serializer:UserSerializer
   belongs_to :household, serializer:HouseholdSerializer
 
-def username
-  object.user.username
-end
+
 
 
 
