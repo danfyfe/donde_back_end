@@ -44,6 +44,7 @@ class HouseholdSerializer < ActiveModel::Serializer
     self.object.messages.map do |message|
       {
         id: message.id,
+        created_at: message.created_at,
         title: message.title,
         content: message.content,
         user: message.user,
