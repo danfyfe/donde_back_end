@@ -13,7 +13,10 @@ end
 
 def create
   @item = Item.create(item_params)
-  # byebug
+  params[:users_ids].each do |user_id|
+    UserItem.find_or_create_by(user_id: user_id, item_id: @item.id)
+  end
+  byebug
   render json: @item, include: [:users,:container,:space,:household]
 end
 
