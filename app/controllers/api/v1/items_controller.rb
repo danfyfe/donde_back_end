@@ -16,7 +16,7 @@ def create
   params[:users_ids].each do |user_id|
     UserItem.find_or_create_by(user_id: user_id, item_id: @item.id)
   end
-  byebug
+  # byebug
   render json: @item, include: [:users,:container,:space,:household]
 end
 
@@ -36,7 +36,7 @@ def update
   # byebug
   @message = Message.create(user_id: @user.id, household_id: @household.id, title:"#{@item.name} has been moved!", content:"#{@user.username} has moved #{@item.name} in #{@item.container.name} to #{@item.space.name}")
 
-  render json: @item, include: [:users,:container,:space,:household]
+  render json: @item, include: [:users,:container,:space,:household] 
 
 end
 
