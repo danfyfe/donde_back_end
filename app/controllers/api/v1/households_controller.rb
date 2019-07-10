@@ -35,6 +35,21 @@ class Api::V1::HouseholdsController < ApplicationController
     end
   end
 
+  def leave
+    @household = Household.find(params[:leave][:household_id])
+    @user = User.find(params[:leave][:user_id])
+    @user_household = UserHousehold.find_by(user_id:@user.id, household_id:@household.id)
+      # byebug
+      @user_household.destroy
+      render json: @household
+    if @household.authenticate(params[:leave][:password])
+
+    else
+      render json: {message: 'Invalid Password'}, status: :unauthorized
+    end
+
+  end
+
   def update
     # byebug
     @household = Household.find(params[:id])
