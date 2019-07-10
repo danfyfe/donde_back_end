@@ -32,6 +32,8 @@ Rails.application.routes.draw do
       # spaces
       get '/spaces/:id', to: 'spaces#show'
       post '/spaces', to: 'spaces#create'
+      patch '/spaces/:id', to: 'spaces#update'
+      delete '/spaces/:id', to: 'spaces#destroy'
 
       #containers
       post '/containers', to: 'containers#create'
