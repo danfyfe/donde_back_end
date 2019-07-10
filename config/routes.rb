@@ -37,7 +37,10 @@ Rails.application.routes.draw do
       delete '/spaces/:id', to: 'spaces#destroy'
 
       #containers
+      get '/containers/:id', to: 'containers#show'
       post '/containers', to: 'containers#create'
+      patch '/containers/:id', to: 'containers#update'
+      delete '/containers/:id', to: 'containers#destroy'
 
     end
   end
