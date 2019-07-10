@@ -22,6 +22,7 @@ montvale = Household.create(name:"Montvale", color:"blue", image:"https://i.imgu
 lakehouse = Household.create(name:"Lake House", color:"orange",image:"https://i.imgur.com/nKUQcrC.png",password:"123")
 
 
+
 ## user_households ##
 
 UserHousehold.find_or_create_by(user_id:dan.id,household_id:apt.id)
@@ -43,6 +44,8 @@ bedroom_closet = Space.find_or_create_by(name:"Dan and Meylin's Bedroom Closet",
 
 coat_closet = Space.find_or_create_by(name:"Coat Closet", household_id:apt.id)
 
+kitchen_cabinet = Space.find_or_create_by(name:"Kitchen Cabinets", household_id:apt.id)
+
 basement = Space.find_or_create_by(name:"Basement", household_id:montvale.id)
 
 attic = Space.find_or_create_by(name:"Attic", household_id:montvale.id)
@@ -60,7 +63,9 @@ christmas_stuff = Container.find_or_create_by(name:"Chrismas stuff", description
 
 wig_box = Container.find_or_create_by(name:"Wig Box", description:"A colorful box full of Meylin's wigs", space_id:bedroom_closet.id)
 
-none = Container.find_or_create_by(name:"", description:"", space_id:coat_closet.id)
+top_drawer = Container.find_or_create_by(name:"Top drawer", description:"Top drawer of the bottom left kitchen cabinet", space_id:kitchen_cabinet.id)
+
+# none = Container.find_or_create_by(name:"", description:"", space_id:coat_closet.id)
 
 clothes_box = Container.find_or_create_by(name:"Box of old clothes", description:"A brown box with DAN'S OLD CLOTHES written on it",color:"brown", space_id:attic.id)
 
@@ -79,6 +84,8 @@ ornaments = Item.find_or_create_by(name:"Chrismas Ornaments", description:"A bun
 wig1 = Item.find_or_create_by(name:"Blonde Wig", description:"A blonde Bob wig", container_id:wig_box.id)
 wig2 = Item.find_or_create_by(name:"Pink Wig", description:"A pink Bob wig", container_id:wig_box.id)
 wig3 = Item.find_or_create_by(name:"Black Wig", description:"A black long wig", container_id:wig_box.id)
+
+nutribullet = Item.find_or_create_by(name:"NutriBullet", description:"NutriBullet blender", container_id:top_drawer.id)
 
 clippers = Item.find_or_create_by(name:"Clippers", description:"Flower clippers", container_id:flower_bag.id)
 
@@ -115,11 +122,17 @@ blanket4 = Item.find_or_create_by(name:"Sheets", description:"5 white bed sheets
 
 
 ## messages ##
-Message.create(user_id:dan.id, household_id:apt.id, title:"Where is the waffle iron?!", content:"I want to make waffles, but I can't find it. WHERE IS IT?!!!")
+Message.create(user_id:meylin.id, household_id:apt.id, title:"NutriBullet", content:"Can I throw out the NutriBullet? I don't think we need it now that we have that new blender.")
+
+Message.create(user_id:dan.id, household_id:apt.id, title:"re: NutriBullet", content:"Sounds good to me!")
+
+Message.create(user_id:meylin.id, household_id:apt.id, title:"NutriBullet has been deleted!", content:"Meylin has deleted NutriBullet! Item description: NutriBullet blender")
 
 Message.create(user_id:mom.id, household_id:montvale.id, title:"Do you want these shirts?", content:"I found two Metallica shirts, can I throw them out or do you want them?")
 
-Message.create(user_id:meylin.id, household_id:apt.id, title:"re: Where is the waffle iron?!", content:"I don't know.")
+# Message.create(user_id:meylin.id, household_id:apt.id, title:"re: Where is the waffle iron?!", content:"I don't know.")
+
+
 
 
 
