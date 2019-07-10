@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       post '/households', to: 'households#create'
       post '/households/:user_id/:household_id', to: 'households#join'
       patch '/households/:id', to: 'households#update'
+      delete '/households/:user_id/:household_id', to: 'households#leave'
 
       # messages
       get '/messages/:id', to:'messages#household'
