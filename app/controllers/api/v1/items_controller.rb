@@ -34,9 +34,9 @@ def update
 
   @household = @item.household
   # byebug
-  @message = Message.create(user_id: @user.id, household_id: @household.id, title:"#{@item.name} has been moved!", content:"#{@user.username} has moved #{@item.name} in #{@item.container.name} to #{@item.space.name}")
+  @message = Message.create(user_id: @user.id, household_id: @household.id, title:"#{@item.name} has been moved!", content:"#{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}")
 
-  render json: @item, include: [:users,:container,:space,:household] 
+  render json: @item, include: [:users,:container,:space,:household]
 
 end
 

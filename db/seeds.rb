@@ -25,7 +25,7 @@ lakehouse = Household.create(name:"Lake House", color:"orange",image:"https://i.
 
 ## user_households ##
 
-UserHousehold.find_or_create_by(user_id:dan.id,household_id:apt.id)
+# UserHousehold.find_or_create_by(user_id:dan.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:meylin.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:desi.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:matt.id,household_id:apt.id)
@@ -124,9 +124,9 @@ blanket4 = Item.find_or_create_by(name:"Sheets", description:"5 white bed sheets
 ## messages ##
 Message.create(user_id:meylin.id, household_id:apt.id, title:"NutriBullet", content:"Can I throw out the NutriBullet? I don't think we need it now that we have that new blender.")
 
-Message.create(user_id:dan.id, household_id:apt.id, title:"re: NutriBullet", content:"Sounds good to me!")
+# Message.create(user_id:dan.id, household_id:apt.id, title:"re: NutriBullet", content:"Sounds good to me!")
 
-Message.create(user_id:meylin.id, household_id:apt.id, title:"NutriBullet has been deleted!", content:"Meylin has deleted NutriBullet! Item description: NutriBullet blender")
+# Message.create(user_id:meylin.id, household_id:apt.id, title:"NutriBullet has been deleted!", content:"Meylin has deleted NutriBullet! Item description: NutriBullet blender")
 
 Message.create(user_id:mom.id, household_id:montvale.id, title:"Do you want these shirts?", content:"I found two Metallica shirts, can I throw them out or do you want them?")
 
