@@ -1,4 +1,5 @@
 class Api::V1::ItemsController < ApplicationController
+  require 'twilio-ruby'
 
 def index
   @items = Item.all
@@ -35,6 +36,17 @@ def update
   @household = @item.household
   # byebug
   @message = Message.create(user_id: @user.id, household_id: @household.id, title:"#{@item.name} has been moved!", content:"#{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}")
+
+  account_sid = ''
+  auth_token = ''
+
+  @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+  message = @client.messages.create(
+    body:"Message from Donde: #{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}",
+    from:'+',
+    to:'+1'
+  )
 
   render json: @item, include: [:users,:container,:space,:household]
 
