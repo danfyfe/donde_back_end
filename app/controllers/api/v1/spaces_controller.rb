@@ -13,14 +13,29 @@ class Api::V1::SpacesController < ApplicationController
   end
 
   def update
-    @space = Space.find(params[:space_id])
+    # byebug
+    @space = Space.find(params[:id])
     @space.update(space_params)
     render json: @space
-    # byebug
   end
 
   def destroy
-    @space = Space.find
+    @space = Space.find(params[:id])
+    @household = Household.find(params[:household_id])
+
+    # byebug
+
+    if @space.containers.length === 0
+      if @household.authenticate(params[:household_password])
+        @space.destroy
+        render json: {message: "Space successfully deleted"}
+      else
+        render json: {message: "Incorrect Household Password"}
+      end
+    else
+      render json: {message: "Cannot delete space with containers. Please remove containers before deleting space"}
+    end
+
   end
 
   private
