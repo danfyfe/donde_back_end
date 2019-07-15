@@ -28,7 +28,7 @@ class Api::V1::SpacesController < ApplicationController
     if @space.containers.length === 0
       if @household.authenticate(params[:household_password])
         @space.destroy
-        render json: {message: "Space successfully deleted"}
+        render json: @household
       else
         render json: {message: "Incorrect Household Password"}
       end
