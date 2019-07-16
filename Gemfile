@@ -51,3 +51,5 @@ gem "active_model_serializers", "0.10.7"
 gem 'twilio', '~> 3.1', '>= 3.1.1'
 
 gem 'twilio-ruby'
+
+gem 'dotenv-rails', groups: [:development, :test]
