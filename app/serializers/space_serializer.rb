@@ -3,8 +3,7 @@ class SpaceSerializer < ActiveModel::Serializer
   belongs_to :household, serializer:HouseholdSerializer
   has_many :containers
   has_many :items, through: :containers
-
-
+  
   def items
     self.object.items.map do |item|
     {

@@ -4,7 +4,6 @@ class ContainerSerializer < ActiveModel::Serializer
   belongs_to :household, through: :space, serializer:HouseholdSerializer
   has_many :items
 
-
   def items
     self.object.items.map do |item|
       {

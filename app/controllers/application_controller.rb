@@ -1,4 +1,3 @@
-# require_relative('')
 class ApplicationController < ActionController::API
   # before_action :authorized
 

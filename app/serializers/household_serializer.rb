@@ -53,8 +53,6 @@ class HouseholdSerializer < ActiveModel::Serializer
     end
   end
 
-
-
   def items
     self.object.items.map do |item|
       {
@@ -68,18 +66,5 @@ class HouseholdSerializer < ActiveModel::Serializer
       }
     end
   end
-
-# def containers
-#   self.object.containers.map do |container|
-#     {
-#       name: container.name,
-#       description: container.description,
-#       color: container.color,
-#       items: container.items
-#     }
-#   end
-# end
-
-
 
 end

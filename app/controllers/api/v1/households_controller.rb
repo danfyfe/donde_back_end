@@ -3,22 +3,17 @@ class Api::V1::HouseholdsController < ApplicationController
   # before_action :authorized
 
   def index
-    # byebug
     @households = Household.all
-    # @spaces = Spaces.all
     render json: @households, include: [:spaces,:containers, :items, :messages, :users]
   end
 
   def show
-    # byebug
     @household = Household.find(params[:id])
     render json: @household, include: [:spaces,:containers,:items, :users, :messages]
   end
 
   def create
-    # byebug
     @household = Household.create(household_params)
-    # @household.update(image:random_house)
     @user_household = UserHousehold.create(user_id: params[:user_id], household_id: @household.id)
     render json: @household
   end
@@ -26,7 +21,6 @@ class Api::V1::HouseholdsController < ApplicationController
   def join
     @household = Household.find(params[:join][:household_id])
     @user = User.find(params[:join][:user_id])
-    # byebug
     if @household.authenticate(params[:join][:password])
       @user_household = UserHousehold.create(join_params)
       render json: @household
@@ -39,11 +33,9 @@ class Api::V1::HouseholdsController < ApplicationController
     @household = Household.find(params[:leave][:household_id])
     @user = User.find(params[:leave][:user_id])
     @user_household = UserHousehold.find_by(user_id:@user.id, household_id:@household.id)
-      # byebug
+    if @household.authenticate(params[:leave][:password])
       @user_household.destroy
       render json: @household
-    if @household.authenticate(params[:leave][:password])
-
     else
       render json: {message: 'Invalid Password'}, status: :unauthorized
     end
@@ -51,7 +43,6 @@ class Api::V1::HouseholdsController < ApplicationController
   end
 
   def update
-    # byebug
     @household = Household.find(params[:id])
     @household.update(name:params[:household][:name], color: params[:household][:color], image:params[:household][:image])
     render json: @household

@@ -6,10 +6,7 @@ class UserSerializer < ActiveModel::Serializer
   has_many :items, through: :user_items
   has_many :messages
 
-
-
   def households
-
     self.object.households.map do |household|
       {
         id: household.id,
@@ -57,7 +54,6 @@ class UserSerializer < ActiveModel::Serializer
               description: container.description,
               household: container.household
             }
-
           end,
         items: household.items.map do |item|
           {

@@ -8,7 +8,6 @@ end
 
 def show
   @item = Item.find(params[:id])
-  # byebug
   render json: @item, include: [:users, :container,:space,:household]
 end
 
@@ -17,7 +16,6 @@ def create
   params[:users_ids].each do |user_id|
     UserItem.find_or_create_by(user_id: user_id, item_id: @item.id)
   end
-  # byebug
   render json: @item, include: [:users,:container,:space,:household]
 end
 
@@ -25,7 +23,6 @@ def update
   @container = Container.find(params[:item][:container_id])
   @space = Space.find(params[:item][:space_id])
   @item = Item.find(params[:item][:id])
-  # byebug
 
   @container.update(space_id:params[:item][:space_id])
 
@@ -34,12 +31,20 @@ def update
   @user = User.find(params[:user_id])
 
   @household = @item.household
-  # byebug
+
   @message = Message.create(user_id: @user.id, household_id: @household.id, title:"#{@item.name} has been moved!", content:"#{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}")
 
   ## below uses Twilio API to send text message informing move of item. This should eventually only text the owners of the item, but for display purposes, will text one number whenever anything is moved ##
   account_sid = ENV['TWILIO_ACCOUNT_SID']
   auth_token = ENV['TWILIO_AUTH_TOKEN']
+
+  # @item.users.each do |user|
+  #   message = @client.messages.create(
+  #     body:"Message from Donde: #{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}",
+  #     from:ENV['TWILIO_FROM_NUMBER'],
+  #     to: user.phone_number
+  #   )
+  # end
 
   @client = Twilio::REST::Client.new(account_sid, auth_token)
 
@@ -54,19 +59,16 @@ def update
 end
 
 def set_owners
-
   @item = Item.find(params[:item][:id])
 
   params[:users_ids].each do |user_id|
     UserItem.find_or_create_by(user_id: user_id, item_id:params[:item][:id])
   end
 
-  # byebug
   render json: @item, include: [:users,:container,:space,:household]
 end
 
 def destroy
-  # byebug
   @item = Item.find(params[:id])
   @household = @item.household
   @user = User.find(params[:userId])

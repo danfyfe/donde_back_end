@@ -1,27 +1,21 @@
-# README
+<h2>Welcome to Donde!</h2>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+built with Ruby version: 2.6.1\
+By: Dan Fyfe
 
-Things you may want to cover:
+**Setup**
+- In your terminal, while inside the Donde Back End directory, run 'bundle install', 'rails db:create', 'rails db:migrate', 'rails db:seed', and 'rails s'
+- Note that if you want to use the Twilio API to send a text message when an item is moved, you will need to have a Twilio account and replace the Twilio SID, Twilio Auth Token, and both phone numbers with your own (inside of the update action in the items controller). The [Twilio documentation](https://www.twilio.com/docs/sms) is wonderful!
+- Complete the final setup in the [Donde Front End directory](https://github.com/danfyfe/donde_front_end)
 
-* Ruby version
+**Basic Idea and Usage**
+- This app was made for household item management. If you live in household with other people who are always moving your things, this app will help you keep track of where everything is and notify you when your items have been moved, where they were moved to, and who moved them.
+- After signing up, the user is brought to the profile page which displays the user's households and all messages associated with those households. The user can create a household by clicking 'add household' and completing the form, or use the search icon at the top of the page to search for an already created household. If your housemates have created a household, they will need to give you the password before you can join it.
+- Once the user has created or joined a household, they can create a space(a closet, room, cabinet, etc), a container inside of that space(box, bag, etc) and an item inside of that container.
+- Once the household, spaces, containers, and items have been set, the user can navigate through the hierarchy to the item card, or use the same search bar mentioned above to search for the item they would like to move. The results of the item search will only display items that the user has access to through the households they belong to. Clicking on the item card will bring the user to the item's page.
+- From the item's page, the user can move the item by clicking the 'move item' button and filling in the appropriate information. Once the form is submitted, a message will automatically be posted to the Household's page and a text message sent to the item owner(s) phone numbers, if set up.
+- Note: For ease of demonstration, you can login with the username: 'John', and search for and join household: 'Apt'. All seeded passwords are a very secure '123' :)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 
 **Photo and Icon Credits**
 
