@@ -68,6 +68,14 @@ def set_owners
   render json: @item, include: [:users,:container,:space,:household]
 end
 
+def remove_owner
+  @item = Item.find(params[:item][:id])
+  @user = User.find(params[:user_id])
+  @user_item = UserItem.find_by(item_id:@item.id, user_id:@user.id)
+  @user_item.destroy
+  render json: @item, include: [:users,:containers,:space,:household]
+end
+
 def destroy
   @item = Item.find(params[:id])
   @household = @item.household
