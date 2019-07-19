@@ -1,4 +1,3 @@
-require_relative '../../concerns/random_house.rb'
 class Api::V1::HouseholdsController < ApplicationController
   # before_action :authorized
 
