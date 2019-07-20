@@ -13,7 +13,7 @@ class Api::V1::SpacesController < ApplicationController
   def update
     @space = Space.find(params[:id])
     @space.update(space_params)
-    render json: @space
+    render json: @space, include: [:containers,:items]
   end
 
   def destroy

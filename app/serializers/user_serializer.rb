@@ -30,7 +30,8 @@ class UserSerializer < ActiveModel::Serializer
             {
               id: space.id,
               name: space.name,
-              containers: space.containers
+              containers: space.containers,
+              created_at: space.created_at
             }
           end,
         containers:

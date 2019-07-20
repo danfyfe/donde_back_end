@@ -12,6 +12,7 @@ class HouseholdSerializer < ActiveModel::Serializer
       {
         id: space.id,
         name: space.name,
+        created_at: space.created_at,
         household_id: space.household_id,
         containers:
         space.containers.map do |container|
