@@ -35,8 +35,8 @@ def update
   @message = Message.create(user_id: @user.id, household_id: @household.id, title:"#{@item.name} has been moved!", content:"#{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}")
 
   ## below uses Twilio API to send text message informing move of item. This should eventually only text the owners of the item, but for display purposes, will text one number whenever anything is moved ##
-  # account_sid = ENV['TWILIO_ACCOUNT_SID']
-  # auth_token = ENV['TWILIO_AUTH_TOKEN']
+  account_sid = ENV['TWILIO_ACCOUNT_SID']
+  auth_token = ENV['TWILIO_AUTH_TOKEN']
 
   # @item.users.each do |user|
   #   message = @client.messages.create(
@@ -47,14 +47,14 @@ def update
   # end
 
 
-## taken out for live version - dont need peoples phone numbers on here - not secure
-  # @client = Twilio::REST::Client.new(account_sid, auth_token)
-  #
-  # message = @client.messages.create(
-  #   body:"Message from Donde: #{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}",
-  #   from:ENV['TWILIO_FROM_NUMBER'],
-  #   to:ENV['TWILIO_TO_NUMBER']
-  # )
+# taken out for live version - dont need peoples phone numbers on here - not secure
+  @client = Twilio::REST::Client.new(account_sid, auth_token)
+
+  message = @client.messages.create(
+    body:"Message from Donde: #{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}",
+    from:ENV['TWILIO_FROM_NUMBER'],
+    to:ENV['TWILIO_TO_NUMBER']
+  )
 
   render json: @item, include: [:users,:container,:space,:household]
 
