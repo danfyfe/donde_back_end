@@ -22,11 +22,12 @@ lakehouse = Household.create(name:"Lake House", color:"orange",image:"https://i.
 
 
 ## user_households ##
+# UserHousehold.find_or_create_by(user_id:dan.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:jane.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:mary.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:frank.id,household_id:apt.id)
 
-UserHousehold.find_or_create_by(user_id:dan.id,household_id:moms_house.id)
+# UserHousehold.find_or_create_by(user_id:dan.id,household_id:moms_house.id)
 UserHousehold.find_or_create_by(user_id:mom.id,household_id:moms_house.id)
 
 UserHousehold.find_or_create_by(user_id:mom.id,household_id:lakehouse.id)
