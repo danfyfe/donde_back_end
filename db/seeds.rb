@@ -2,7 +2,7 @@ puts "SEEDING"
 
 
 ## users ##
-john = User.create(password:"123",username:"John",email:"none",phone_number:"none",image:"https://i.imgur.com/UFAMSqv.png")
+dan = User.create(password:"123",username:"Dan",email:"none",phone_number:"none",image:"https://i.imgur.com/UFAMSqv.png")
 
 jane = User.create(password:"123",username:"Jane",email:"none",phone_number:"none",image:"https://i.imgur.com/H7iqVi6.png")
 
@@ -26,7 +26,7 @@ UserHousehold.find_or_create_by(user_id:jane.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:mary.id,household_id:apt.id)
 UserHousehold.find_or_create_by(user_id:frank.id,household_id:apt.id)
 
-UserHousehold.find_or_create_by(user_id:john.id,household_id:moms_house.id)
+UserHousehold.find_or_create_by(user_id:dan.id,household_id:moms_house.id)
 UserHousehold.find_or_create_by(user_id:mom.id,household_id:moms_house.id)
 
 UserHousehold.find_or_create_by(user_id:mom.id,household_id:lakehouse.id)
@@ -95,10 +95,10 @@ blanket4 = Item.find_or_create_by(name:"Sheets", description:"5 white bed sheets
 
 
 # user items
-UserItem.find_or_create_by(user_id:john.id,item_id:les_paul.id)
-UserItem.find_or_create_by(user_id:john.id,item_id:les_paul_strap.id)
-UserItem.find_or_create_by(user_id:john.id,item_id:imac.id)
-UserItem.find_or_create_by(user_id:john.id,item_id:keyboard.id)
+UserItem.find_or_create_by(user_id:dan.id,item_id:les_paul.id)
+UserItem.find_or_create_by(user_id:dan.id,item_id:les_paul_strap.id)
+UserItem.find_or_create_by(user_id:dan.id,item_id:imac.id)
+UserItem.find_or_create_by(user_id:dan.id,item_id:keyboard.id)
 UserItem.find_or_create_by(user_id:jane.id,item_id:wig1.id)
 UserItem.find_or_create_by(user_id:jane.id,item_id:wig2.id)
 UserItem.find_or_create_by(user_id:jane.id,item_id:wig3.id)
@@ -109,10 +109,10 @@ UserItem.find_or_create_by(user_id:mom.id,item_id:blanket1.id)
 UserItem.find_or_create_by(user_id:mom.id,item_id:blanket2.id)
 UserItem.find_or_create_by(user_id:mom.id,item_id:blanket3.id)
 UserItem.find_or_create_by(user_id:mom.id,item_id:blanket4.id)
-UserItem.find_or_create_by(user_id:john.id,item_id:old_shirt1.id)
-UserItem.find_or_create_by(user_id:john.id,item_id:old_shirt2.id)
-UserItem.find_or_create_by(user_id:john.id,item_id:old_shirt3.id)
-UserItem.find_or_create_by(user_id:john.id,item_id:nutribullet.id)
+UserItem.find_or_create_by(user_id:dan.id,item_id:old_shirt1.id)
+UserItem.find_or_create_by(user_id:dan.id,item_id:old_shirt2.id)
+UserItem.find_or_create_by(user_id:dan.id,item_id:old_shirt3.id)
+UserItem.find_or_create_by(user_id:dan.id,item_id:nutribullet.id)
 UserItem.find_or_create_by(user_id:jane.id,item_id:nutribullet.id)
 
 
