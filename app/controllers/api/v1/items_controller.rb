@@ -49,7 +49,7 @@ def update
 
 # taken out for live version - dont need peoples phone numbers on here - not secure
   @client = Twilio::REST::Client.new(account_sid, auth_token)
-
+  
   message = @client.messages.create(
     body:"Message from Donde: #{@user.username} has moved #{@item.name}. #{@item.name} is now in #{@item.container.name} in #{@item.space.name}",
     from:ENV['TWILIO_FROM_NUMBER'],
