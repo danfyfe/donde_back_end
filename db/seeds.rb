@@ -54,7 +54,7 @@ imac_box = Container.find_or_create_by(name:"iMac Box", description:"iMac box", 
 
 flower_bag = Container.find_or_create_by(name:"Flower Bag", description:"A bag full of flower tools", color:"green", space_id:storage_closet.id)
 
-christmas_stuff = Container.find_or_create_by(name:"Chrismas stuff", description:"Colorful box with all the chrismas stuff", color:"green", space_id:storage_closet.id)
+christmas_stuff = Container.find_or_create_by(name:"Christmas stuff", description:"Colorful box with all the Christmas stuff", color:"green", space_id:storage_closet.id)
 
 wig_box = Container.find_or_create_by(name:"Wig Box", description:"A colorful box full of Jane's wigs", space_id:bedroom_closet.id)
 

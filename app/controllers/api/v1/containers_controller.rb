@@ -10,7 +10,13 @@ class Api::V1::ContainersController < ApplicationController
   end
 
   def update
-    byebug
+    @container = Container.find(params[:id])
+
+    if @container.update(container_params)
+      render json: @container, include: [:items, :space]
+    else
+      render json: { error: @container.errors.full_messages }
+    end
   end
 
   def destroy
