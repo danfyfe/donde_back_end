@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       get '/items', to: 'items#index'
       post '/items', to: 'items#create'
       patch '/items/:id', to: 'items#update'
+      patch '/items/edit/:id', to: 'items#edit'
       patch '/items/owners/:id', to: 'items#set_owners'
       delete '/items/owners/:id/:user_id', to: 'items#remove_owner'
       delete '/items/:id', to: 'items#destroy'
