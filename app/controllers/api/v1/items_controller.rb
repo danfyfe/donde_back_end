@@ -72,10 +72,9 @@ def edit
 end
 
 def set_owners
-  @item = Item.find(params[:item][:id])
-
+  @item = Item.find(params[:id])
   params[:users_ids].each do |user_id|
-    UserItem.find_or_create_by(user_id: user_id, item_id:params[:item][:id])
+    UserItem.find_or_create_by(user_id: user_id, item_id: params[:id])
   end
 
   render json: @item, include: [:users,:container,:space,:household]
@@ -86,7 +85,7 @@ def remove_owner
   @user = User.find(params[:user_id])
   @user_item = UserItem.find_by(item_id:@item.id, user_id:@user.id)
   @user_item.destroy
-  render json: @item, include: [:users,:containers,:space,:household]
+  render json: @item, include: [:users,:container,:space,:household]
 end
 
 def destroy
